@@ -70,6 +70,8 @@ This is a simple application that may not hold much practical use, but it serves
 To access my shiny app, please visit the following link:
 https://jessielr.shinyapps.io/ChickWeight/
 
+To access code files and readme, please visit the following link:
+https://github.com/jesslr/ChickWeightApp
 
 
 
