@@ -33,7 +33,7 @@
         <slide class="title-slide segue nobackground">
   <hgroup class="auto-fadein">
     <h1>Chick Weights by Diet</h1>
-    <h2></h2>
+    <h2>Explore effect of diet on chick weight</h2>
     <p>Jessica L. Ramos<br/></p>
   </hgroup>
   <article></article>  
@@ -43,14 +43,24 @@
     <!-- SLIDES -->
     <slide class="" id="slide-1" style="background:;">
   <hgroup>
-    <h2>Read-And-Delete</h2>
+    <h2>Introduction</h2>
   </hgroup>
   <article data-timings="">
-    <ol>
-<li>Edit YAML front matter</li>
-<li>Write using R Markdown</li>
-<li>Use an empty line followed by three dashes to separate slides!</li>
-</ol>
+    <p>My shiny application uses the ChickWeight R dataset. This dataset contains the body weights of chicks measured at birth and every second day until day 20.  They were also measured on day 21.  The experiment evaluated 4 different protein diets to see which had the most effect on chick weight.  </p>
+
+<p>Here is a sample of what the data look like:</p>
+
+<pre><code class="r">head(ChickWeight)
+</code></pre>
+
+<pre><code>##   weight Time Chick Diet
+## 1     42    0     1    1
+## 2     51    2     1    1
+## 3     59    4     1    1
+## 4     64    6     1    1
+## 5     76    8     1    1
+## 6     93   10     1    1
+</code></pre>
 
   </article>
   <!-- Presenter Notes -->
@@ -58,10 +68,67 @@
 
 <slide class="class" id="id" style="background:;">
   <hgroup>
-    <h2>Slide 2</h2>
+    <h2>User input</h2>
   </hgroup>
   <article data-timings="">
-    
+    <p>My shiny application takes two user inputs:</p>
+
+<ul>
+<li>Diet
+
+<ul>
+<li>drop down selection box allows you to choose one of the four diets </li>
+</ul></li>
+<li>Linear regression line
+
+<ul>
+<li>checkbox will plot a linear regression line on the scatterplot</li>
+</ul></li>
+</ul>
+
+<p>Here is a screenshot from the app showing the user inputs: </p>
+
+<div style='text-align: center;'>
+    <img height='300' src='./assets/img/InputScreenshot.png' />
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Reactive output</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>My shiny application shows a scatterplot of Weight and Age in Days for the diet selected by the user.  It will include a linear regression line if the user checks the box to show one.  For example, here is the plot for diet 1, with regression line:</p>
+
+<p><img src="figure/unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Reactive outputs</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The app will also show the mean weight and standard deviation for the diet selected:</p>
+
+<pre><code class="r">avgWt &lt;- round(mean(subData$weight, na.rm=TRUE), 2)
+sDev &lt;- round(sd(subData$weight, na.rm = TRUE), 2)
+</code></pre>
+
+<p>For instance, the mean weight, calculated above for diet 1 is 102.65 and the standard deviation is 56.66.</p>
+
+<h2>Conclusion</h2>
+
+<p>This is a simple application that may not hold much practical use, but it serves as an introduction to shiny and slidify.</p>
+
+<p>To access my shiny app, please visit the following link:
+<a href="https://jessielr.shinyapps.io/ChickWeight/">https://jessielr.shinyapps.io/ChickWeight/</a></p>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
@@ -72,14 +139,26 @@
     <ul>
       <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=1 title='Read-And-Delete'>
+        data-slide=1 title='Introduction'>
          1
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=2 title='Slide 2'>
+        data-slide=2 title='User input'>
          2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Reactive output'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Reactive outputs'>
+         4
       </a>
     </li>
   </ul>
